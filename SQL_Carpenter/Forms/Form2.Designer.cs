@@ -46,6 +46,7 @@
             txt_DDL_getAll_userName = new TextBox();
             label8 = new Label();
             txt_DDL_getAll_password = new TextBox();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -129,7 +130,7 @@
             button1.Name = "button1";
             button1.Size = new Size(125, 29);
             button1.TabIndex = 9;
-            button1.Text = "Create";
+            button1.Text = "Create DB";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -139,7 +140,7 @@
             dataGridView1.Location = new Point(333, 64);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1101, 211);
+            dataGridView1.Size = new Size(1101, 162);
             dataGridView1.TabIndex = 10;
             // 
             // button2
@@ -200,11 +201,22 @@
             txt_DDL_getAll_password.Size = new Size(125, 27);
             txt_DDL_getAll_password.TabIndex = 17;
             // 
+            // button3
+            // 
+            button3.Location = new Point(333, 246);
+            button3.Name = "button3";
+            button3.Size = new Size(94, 29);
+            button3.TabIndex = 18;
+            button3.Text = "Delete DB";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1461, 583);
+            Controls.Add(button3);
             Controls.Add(txt_DDL_getAll_password);
             Controls.Add(label8);
             Controls.Add(txt_DDL_getAll_userName);
@@ -250,5 +262,6 @@
         private TextBox txt_DDL_getAll_userName;
         private Label label8;
         private TextBox txt_DDL_getAll_password;
+        private Button button3;
     }
 }

@@ -27,10 +27,18 @@ namespace SQL_Carpenter.Forms
             string user_name = txt_DDL_userName.Text;
             string password = txt_DDL_password.Text;
 
-            CreateDB createDB = new CreateDB(server_name, user_name, password);
+            try
+            {
+                CreateDB createDB = new CreateDB(server_name, user_name, password);
 
-            int result = createDB.CreateDatabase(database_name);
-            MessageBox.Show(result == -1 ? "Database created succesfully" : "Error while creating the database");
+                int result = createDB.CreateDatabase(database_name);
+                MessageBox.Show(result == -1 ? "Database created succesfully" : "Error while creating the database");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($" -- Exception found --> \n\n {ex}");
+            }
+
 
             txt_DDL_serverName.Text = "";
             txt_DDL_dataBaseName.Text = "";
@@ -50,9 +58,31 @@ namespace SQL_Carpenter.Forms
                 allDataBasesBindingSource.DataSource = getAllDB.getAllDataBases();
                 dataGridView1.DataSource = allDataBasesBindingSource;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                MessageBox.Show($" -- Exception found, check your credentials \n\n {ex}");
+                MessageBox.Show($" -- Exception found --> \n\n {ex}");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int rowClicked = dataGridView1.CurrentRow.Index;
+            string db_name = dataGridView1.Rows[rowClicked].Cells[0].Value.ToString();
+
+            string server_name = txt_DDL_getAll_serverName.Text;
+            string user_name = txt_DDL_getAll_userName.Text;
+            string password = txt_DDL_getAll_password.Text;
+
+            try 
+            {
+                DropDB dropDB = new DropDB(server_name, user_name, password);
+                int result = dropDB.DropDatabase(db_name);
+
+                MessageBox.Show(result == 1 ? "Database deleted succesfully" : "Error while deleting the database");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($" -- Exception found --> \n\n {ex}");
             }
         }
     }
