@@ -34,7 +34,7 @@ namespace SQL_Carpenter.Forms
                 int result = createDB.CreateDatabase(database_name);
                 MessageBox.Show(result == -1 ? "Database created succesfully" : "Error while creating the database");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($" -- Exception found --> \n\n {ex}");
             }
@@ -73,17 +73,30 @@ namespace SQL_Carpenter.Forms
             string user_name = txt_DDL_getAll_userName.Text;
             string password = txt_DDL_getAll_password.Text;
 
-            try 
+            try
             {
                 DropDB dropDB = new DropDB(server_name, user_name, password);
                 int result = dropDB.DropDatabase(db_name);
 
                 MessageBox.Show(result == 1 ? "Database deleted succesfully" : "Error while deleting the database");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($" -- Exception found --> \n\n {ex}");
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int currentRow = dataGridView1.CurrentRow.Index;
+            string db_name = dataGridView1.Rows[currentRow].Cells[0].Value.ToString();
+
+            
+            Form3 form3 = new Form3(db_name);
+            form3.FormClosed += (s, args) => this.Show();
+            form3.Show();
+            this.Hide();
+            
         }
     }
 }
