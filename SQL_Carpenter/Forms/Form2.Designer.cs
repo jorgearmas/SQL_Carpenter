@@ -47,6 +47,7 @@
             label8 = new Label();
             txt_DDL_getAll_password = new TextBox();
             button3 = new Button();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -72,7 +73,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(17, 109);
+            label3.Location = new Point(17, 343);
             label3.Name = "label3";
             label3.Size = new Size(116, 20);
             label3.TabIndex = 2;
@@ -81,7 +82,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(17, 154);
+            label4.Location = new Point(17, 110);
             label4.Name = "label4";
             label4.Size = new Size(38, 20);
             label4.TabIndex = 3;
@@ -90,7 +91,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(17, 199);
+            label5.Location = new Point(17, 155);
             label5.Name = "label5";
             label5.Size = new Size(70, 20);
             label5.TabIndex = 4;
@@ -105,28 +106,28 @@
             // 
             // txt_DDL_userName
             // 
-            txt_DDL_userName.Location = new Point(166, 154);
+            txt_DDL_userName.Location = new Point(166, 110);
             txt_DDL_userName.Name = "txt_DDL_userName";
             txt_DDL_userName.Size = new Size(125, 27);
             txt_DDL_userName.TabIndex = 6;
             // 
             // txt_DDL_password
             // 
-            txt_DDL_password.Location = new Point(166, 199);
+            txt_DDL_password.Location = new Point(166, 155);
             txt_DDL_password.Name = "txt_DDL_password";
             txt_DDL_password.Size = new Size(125, 27);
             txt_DDL_password.TabIndex = 7;
             // 
             // txt_DDL_dataBaseName
             // 
-            txt_DDL_dataBaseName.Location = new Point(166, 109);
+            txt_DDL_dataBaseName.Location = new Point(166, 343);
             txt_DDL_dataBaseName.Name = "txt_DDL_dataBaseName";
             txt_DDL_dataBaseName.Size = new Size(125, 27);
             txt_DDL_dataBaseName.TabIndex = 8;
             // 
             // button1
             // 
-            button1.Location = new Point(166, 246);
+            button1.Location = new Point(166, 269);
             button1.Name = "button1";
             button1.Size = new Size(125, 29);
             button1.TabIndex = 9;
@@ -203,7 +204,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(333, 246);
+            button3.Location = new Point(333, 269);
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 18;
@@ -211,11 +212,21 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(17, 206);
+            label9.Name = "label9";
+            label9.Size = new Size(50, 20);
+            label9.TabIndex = 19;
+            label9.Text = "label9";
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1461, 583);
+            Controls.Add(label9);
             Controls.Add(button3);
             Controls.Add(txt_DDL_getAll_password);
             Controls.Add(label8);
@@ -263,5 +274,6 @@
         private Label label8;
         private TextBox txt_DDL_getAll_password;
         private Button button3;
+        private Label label9;
     }
 }
