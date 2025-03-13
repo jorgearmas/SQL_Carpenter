@@ -48,6 +48,7 @@
             txt_DDL_getAll_password = new TextBox();
             button3 = new Button();
             label9 = new Label();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(17, 343);
+            label3.Location = new Point(17, 247);
             label3.Name = "label3";
             label3.Size = new Size(116, 20);
             label3.TabIndex = 2;
@@ -120,14 +121,14 @@
             // 
             // txt_DDL_dataBaseName
             // 
-            txt_DDL_dataBaseName.Location = new Point(166, 343);
+            txt_DDL_dataBaseName.Location = new Point(166, 247);
             txt_DDL_dataBaseName.Name = "txt_DDL_dataBaseName";
             txt_DDL_dataBaseName.Size = new Size(125, 27);
             txt_DDL_dataBaseName.TabIndex = 8;
             // 
             // button1
             // 
-            button1.Location = new Point(166, 269);
+            button1.Location = new Point(166, 296);
             button1.Name = "button1";
             button1.Size = new Size(125, 29);
             button1.TabIndex = 9;
@@ -141,7 +142,7 @@
             dataGridView1.Location = new Point(333, 64);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1101, 162);
+            dataGridView1.Size = new Size(1101, 261);
             dataGridView1.TabIndex = 10;
             // 
             // button2
@@ -204,7 +205,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(333, 269);
+            button3.Location = new Point(1340, 344);
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 18;
@@ -215,17 +216,28 @@
             // label9
             // 
             label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, 0);
             label9.Location = new Point(17, 206);
             label9.Name = "label9";
-            label9.Size = new Size(50, 20);
+            label9.Size = new Size(116, 20);
             label9.TabIndex = 19;
-            label9.Text = "label9";
+            label9.Text = "Name Database";
+            // 
+            // button4
+            // 
+            button4.Location = new Point(1226, 344);
+            button4.Name = "button4";
+            button4.Size = new Size(94, 29);
+            button4.TabIndex = 20;
+            button4.Text = "Modify DB";
+            button4.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1461, 583);
+            ClientSize = new Size(1466, 395);
+            Controls.Add(button4);
             Controls.Add(label9);
             Controls.Add(button3);
             Controls.Add(txt_DDL_getAll_password);
@@ -275,5 +287,6 @@
         private TextBox txt_DDL_getAll_password;
         private Button button3;
         private Label label9;
+        private Button button4;
     }
 }
