@@ -41,6 +41,11 @@
             button2 = new Button();
             label6 = new Label();
             textBox2 = new TextBox();
+            label7 = new Label();
+            dataGridView1 = new DataGridView();
+            button3 = new Button();
+            label8 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -56,7 +61,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(151, 9);
+            label2.Location = new Point(159, 9);
             label2.Name = "label2";
             label2.Size = new Size(50, 20);
             label2.TabIndex = 1;
@@ -64,7 +69,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(117, 46);
+            textBox1.Location = new Point(159, 46);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(125, 27);
             textBox1.TabIndex = 2;
@@ -91,9 +96,9 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDark;
-            panel1.Location = new Point(311, 131);
+            panel1.Location = new Point(311, 46);
             panel1.Name = "panel1";
-            panel1.Size = new Size(491, 214);
+            panel1.Size = new Size(491, 299);
             panel1.TabIndex = 5;
             // 
             // label5
@@ -157,11 +162,55 @@
             textBox2.Size = new Size(125, 27);
             textBox2.TabIndex = 14;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(311, 9);
+            label7.Name = "label7";
+            label7.Size = new Size(99, 20);
+            label7.TabIndex = 15;
+            label7.Text = "Fields Added:";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(830, 46);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(600, 299);
+            dataGridView1.TabIndex = 16;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(1315, 353);
+            button3.Name = "button3";
+            button3.Size = new Size(115, 29);
+            button3.TabIndex = 17;
+            button3.Text = "Delete Table";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = SystemColors.MenuHighlight;
+            label8.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = SystemColors.Info;
+            label8.Location = new Point(830, 357);
+            label8.Name = "label8";
+            label8.Size = new Size(455, 17);
+            label8.TabIndex = 18;
+            label8.Text = "Deleting a table will result in loss of complete information stored in the table";
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1466, 395);
+            Controls.Add(label8);
+            Controls.Add(button3);
+            Controls.Add(dataGridView1);
+            Controls.Add(label7);
             Controls.Add(textBox2);
             Controls.Add(label6);
             Controls.Add(button2);
@@ -177,6 +226,7 @@
             Controls.Add(label1);
             Name = "Form3";
             Text = "Form3";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -196,5 +246,9 @@
         private Button button2;
         private Label label6;
         private TextBox textBox2;
+        private Label label7;
+        private DataGridView dataGridView1;
+        private Button button3;
+        private Label label8;
     }
 }

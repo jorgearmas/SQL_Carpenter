@@ -14,6 +14,8 @@ namespace SQL_Carpenter.Forms
 {
     public partial class Form3 : Form
     {
+        BindingSource getAllTablesBindingSource = new BindingSource();
+
         private string _db_name;
         private string _server_name;
         private string _user_name;
@@ -28,6 +30,10 @@ namespace SQL_Carpenter.Forms
             _user_name = user_name;
             _password = password;
             label2.Text = _db_name;
+
+            TableManagement tableManagement = new TableManagement(_server_name, _user_name, _password);
+            getAllTablesBindingSource.DataSource = tableManagement.GetAllTables(_db_name);
+            dataGridView1.DataSource = getAllTablesBindingSource;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,8 +63,18 @@ namespace SQL_Carpenter.Forms
 
             TableManagement tableManagement = new TableManagement(_server_name, _user_name, _password);
             int result = tableManagement.CreateTable(_db_name, table_name, primary_key, field_type_pair);
-            MessageBox.Show(result == -1 ? "Table created succesfully" : "Error while deleting the table");
-            
+            MessageBox.Show(result == -1 ? "Table created succesfully" : "Error while creating the table");
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int rowClicked = dataGridView1.CurrentRow.Index;
+            string table_name = dataGridView1.Rows[rowClicked].Cells[2].Value.ToString();
+
+            TableManagement tableManagement = new TableManagement(_server_name, _user_name, _password);
+            int result = tableManagement.DropTable(_db_name, table_name);
+            MessageBox.Show(result == -1 ? "Table deleted succesfully" : "Error while deleting the table");
         }
     }
 }
