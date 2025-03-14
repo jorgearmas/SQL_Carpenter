@@ -78,7 +78,7 @@ namespace SQL_Carpenter.Forms
                 DropDB dropDB = new DropDB(server_name, user_name, password);
                 int result = dropDB.DropDatabase(db_name);
 
-                MessageBox.Show(result == 1 ? "Database deleted succesfully" : "Error while deleting the database");
+                MessageBox.Show(result == -1 ? "Database deleted succesfully" : "Error while deleting the database");
             }
             catch (Exception ex)
             {
