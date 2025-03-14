@@ -38,6 +38,9 @@
             textBox3 = new TextBox();
             comboBox1 = new ComboBox();
             label4 = new Label();
+            button2 = new Button();
+            label6 = new Label();
+            textBox2 = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -77,7 +80,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(117, 253);
+            button1.Location = new Point(159, 258);
             button1.Name = "button1";
             button1.Size = new Size(125, 29);
             button1.TabIndex = 4;
@@ -87,15 +90,16 @@
             // 
             // panel1
             // 
-            panel1.Location = new Point(265, 163);
+            panel1.BackColor = SystemColors.ControlDark;
+            panel1.Location = new Point(311, 131);
             panel1.Name = "panel1";
-            panel1.Size = new Size(491, 182);
+            panel1.Size = new Size(491, 214);
             panel1.TabIndex = 5;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(12, 163);
+            label5.Location = new Point(12, 173);
             label5.Name = "label5";
             label5.Size = new Size(85, 20);
             label5.TabIndex = 8;
@@ -103,7 +107,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(117, 161);
+            textBox3.Location = new Point(159, 173);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(125, 27);
             textBox3.TabIndex = 9;
@@ -112,7 +116,7 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "INT", "VARCHAR(50)", "DATE" });
-            comboBox1.Location = new Point(117, 204);
+            comboBox1.Location = new Point(159, 214);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(125, 28);
             comboBox1.TabIndex = 10;
@@ -120,17 +124,47 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 204);
+            label4.Location = new Point(12, 214);
             label4.Name = "label4";
             label4.Size = new Size(76, 20);
             label4.TabIndex = 11;
             label4.Text = "Field Type";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(311, 353);
+            button2.Name = "button2";
+            button2.Size = new Size(120, 29);
+            button2.TabIndex = 12;
+            button2.Text = "Create Table";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(12, 128);
+            label6.Name = "label6";
+            label6.Size = new Size(141, 20);
+            label6.TabIndex = 13;
+            label6.Text = "Primary Key Name";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(159, 131);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(125, 27);
+            textBox2.TabIndex = 14;
             // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1466, 395);
+            Controls.Add(textBox2);
+            Controls.Add(label6);
+            Controls.Add(button2);
             Controls.Add(label4);
             Controls.Add(comboBox1);
             Controls.Add(textBox3);
@@ -159,5 +193,8 @@
         private TextBox textBox3;
         private ComboBox comboBox1;
         private Label label4;
+        private Button button2;
+        private Label label6;
+        private TextBox textBox2;
     }
 }
