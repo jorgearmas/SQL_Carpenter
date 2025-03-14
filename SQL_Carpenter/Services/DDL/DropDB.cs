@@ -25,7 +25,7 @@ namespace SQL_Carpenter.Services.DDL
             SqlCommand command = new SqlCommand(query, _connection);
             int db_deletion_status = command.ExecuteNonQuery();
             CloseConnection();
-            return 1;
+            return db_deletion_status;
         }
 
         private bool IsValidDatabaseName(string databaseName)
