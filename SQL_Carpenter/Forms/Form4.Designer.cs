@@ -31,14 +31,14 @@
             label1 = new Label();
             dataGridView1 = new DataGridView();
             label2 = new Label();
-            textBox1 = new TextBox();
+            txt_server_name = new TextBox();
             label3 = new Label();
             label4 = new Label();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            txt_user_name = new TextBox();
+            txt_password = new TextBox();
             label5 = new Label();
             button1 = new Button();
-            textBox4 = new TextBox();
+            txt_db_name = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -70,12 +70,12 @@
             label2.TabIndex = 2;
             label2.Text = "Server Name";
             // 
-            // textBox1
+            // txt_server_name
             // 
-            textBox1.Location = new Point(422, 16);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 3;
+            txt_server_name.Location = new Point(422, 16);
+            txt_server_name.Name = "txt_server_name";
+            txt_server_name.Size = new Size(125, 27);
+            txt_server_name.TabIndex = 3;
             // 
             // label3
             // 
@@ -95,19 +95,19 @@
             label4.TabIndex = 5;
             label4.Text = "User";
             // 
-            // textBox2
+            // txt_user_name
             // 
-            textBox2.Location = new Point(621, 16);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 6;
+            txt_user_name.Location = new Point(621, 16);
+            txt_user_name.Name = "txt_user_name";
+            txt_user_name.Size = new Size(125, 27);
+            txt_user_name.TabIndex = 6;
             // 
-            // textBox3
+            // txt_password
             // 
-            textBox3.Location = new Point(852, 17);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 7;
+            txt_password.Location = new Point(852, 17);
+            txt_password.Name = "txt_password";
+            txt_password.Size = new Size(125, 27);
+            txt_password.TabIndex = 7;
             // 
             // label5
             // 
@@ -126,27 +126,28 @@
             button1.TabIndex = 9;
             button1.Text = "Load";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // textBox4
+            // txt_db_name
             // 
-            textBox4.Location = new Point(1086, 17);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(125, 27);
-            textBox4.TabIndex = 10;
+            txt_db_name.Location = new Point(1086, 17);
+            txt_db_name.Name = "txt_db_name";
+            txt_db_name.Size = new Size(125, 27);
+            txt_db_name.TabIndex = 10;
             // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1466, 395);
-            Controls.Add(textBox4);
+            Controls.Add(txt_db_name);
             Controls.Add(button1);
             Controls.Add(label5);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
+            Controls.Add(txt_password);
+            Controls.Add(txt_user_name);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(textBox1);
+            Controls.Add(txt_server_name);
             Controls.Add(label2);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
@@ -162,13 +163,13 @@
         private Label label1;
         private DataGridView dataGridView1;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox txt_server_name;
         private Label label3;
         private Label label4;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox txt_user_name;
+        private TextBox txt_password;
         private Label label5;
         private Button button1;
-        private TextBox textBox4;
+        private TextBox txt_db_name;
     }
 }

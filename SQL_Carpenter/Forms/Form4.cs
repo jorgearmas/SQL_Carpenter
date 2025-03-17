@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SQL_Carpenter.Services.DDL;
 
 namespace SQL_Carpenter.Forms
 {
@@ -15,6 +16,17 @@ namespace SQL_Carpenter.Forms
         public Form4()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string server_name = txt_server_name.Text;
+            string user_name = txt_user_name.Text;
+            string password = txt_password.Text;
+            string db_name = txt_db_name.Text;
+
+            TableManagement tableManagement = new TableManagement(server_name, user_name, password);
+            tableManagement.GetAllTables(db_name);
         }
     }
 }
