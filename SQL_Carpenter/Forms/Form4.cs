@@ -13,6 +13,7 @@ namespace SQL_Carpenter.Forms
 {
     public partial class Form4 : Form
     {
+        BindingSource getAllTablesBindingSource = new BindingSource();
         public Form4()
         {
             InitializeComponent();
@@ -26,7 +27,8 @@ namespace SQL_Carpenter.Forms
             string db_name = txt_db_name.Text;
 
             TableManagement tableManagement = new TableManagement(server_name, user_name, password);
-            tableManagement.GetAllTables(db_name);
+            getAllTablesBindingSource.DataSource = tableManagement.GetAllTables(db_name);
+            dataGridView1.DataSource = getAllTablesBindingSource;
         }
     }
 }
