@@ -147,7 +147,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(1340, 26);
+            button2.Location = new Point(1340, 23);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 11;
@@ -174,7 +174,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(588, 29);
+            label7.Location = new Point(589, 27);
             label7.Name = "label7";
             label7.Size = new Size(38, 20);
             label7.TabIndex = 14;
@@ -182,7 +182,7 @@
             // 
             // txt_DDL_getAll_userName
             // 
-            txt_DDL_getAll_userName.Location = new Point(632, 27);
+            txt_DDL_getAll_userName.Location = new Point(633, 24);
             txt_DDL_getAll_userName.Name = "txt_DDL_getAll_userName";
             txt_DDL_getAll_userName.Size = new Size(125, 27);
             txt_DDL_getAll_userName.TabIndex = 15;
@@ -190,7 +190,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(790, 31);
+            label8.Location = new Point(790, 27);
             label8.Name = "label8";
             label8.Size = new Size(64, 20);
             label8.TabIndex = 16;
@@ -198,7 +198,7 @@
             // 
             // txt_DDL_getAll_password
             // 
-            txt_DDL_getAll_password.Location = new Point(860, 28);
+            txt_DDL_getAll_password.Location = new Point(860, 24);
             txt_DDL_getAll_password.Name = "txt_DDL_getAll_password";
             txt_DDL_getAll_password.Size = new Size(125, 27);
             txt_DDL_getAll_password.TabIndex = 17;
