@@ -16,5 +16,13 @@ namespace SQL_Carpenter
             form2.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form4 form4 = new Form4();
+            form4.FormClosed += (s, args) => this.Show();
+            form4.Show();
+            this.Hide();
+        }
     }
 }
