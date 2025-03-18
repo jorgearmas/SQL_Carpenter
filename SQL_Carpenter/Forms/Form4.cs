@@ -30,5 +30,21 @@ namespace SQL_Carpenter.Forms
             getAllTablesBindingSource.DataSource = tableManagement.GetAllTables(db_name);
             dataGridView1.DataSource = getAllTablesBindingSource;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string server_name = txt_server_name.Text;
+            string user_name = txt_user_name.Text;
+            string password = txt_password.Text;
+            string db_name = txt_db_name.Text;
+
+            int rowClicked = dataGridView1.CurrentRow.Index;
+            string table_name = dataGridView1.Rows[rowClicked].Cells[2].Value.ToString();
+
+            Form5 form5 = new Form5(server_name, user_name, password, db_name, table_name);
+            form5.FormClosed += (s, args) => this.Show();
+            form5.Show();
+            this.Hide();
+        }
     }
 }

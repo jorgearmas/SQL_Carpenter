@@ -39,6 +39,7 @@
             label5 = new Label();
             button1 = new Button();
             txt_db_name = new TextBox();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -135,11 +136,22 @@
             txt_db_name.Size = new Size(125, 27);
             txt_db_name.TabIndex = 10;
             // 
+            // button2
+            // 
+            button2.Location = new Point(1329, 335);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 11;
+            button2.Text = "INSERT";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1466, 395);
+            Controls.Add(button2);
             Controls.Add(txt_db_name);
             Controls.Add(button1);
             Controls.Add(label5);
@@ -171,5 +183,6 @@
         private Label label5;
         private Button button1;
         private TextBox txt_db_name;
+        private Button button2;
     }
 }
