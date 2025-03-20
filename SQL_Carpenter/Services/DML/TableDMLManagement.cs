@@ -48,10 +48,8 @@ namespace SQL_Carpenter.Services.DML
                 throw new ArgumentException("El número de columnas y valores no coincide.");
             }
 
-            // Construir la parte de los valores con parámetros (@param1, @param2, ...)
             string parameterizedValues = string.Join(", ", columnNames.Select((col, index) => $"@param{index}"));
 
-            // Construir la consulta SQL
             string query = $"INSERT INTO {targetedDB}.dbo.{targetedTable} ({columnsToInsert}) VALUES ({parameterizedValues})";
 
             // Ejecutar la consulta
