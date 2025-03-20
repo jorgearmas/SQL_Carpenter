@@ -31,6 +31,8 @@
             panel1 = new Panel();
             label1 = new Label();
             button1 = new Button();
+            panel2 = new Panel();
+            button2 = new Button();
             SuspendLayout();
             // 
             // panel1
@@ -60,11 +62,31 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.ControlDark;
+            panel2.Location = new Point(524, 50);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(491, 299);
+            panel2.TabIndex = 3;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(921, 355);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 4;
+            button2.Text = "INSERT";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1466, 395);
+            Controls.Add(button2);
+            Controls.Add(panel2);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -79,5 +101,7 @@
         private Panel panel1;
         private Label label1;
         private Button button1;
+        private Panel panel2;
+        private Button button2;
     }
 }
