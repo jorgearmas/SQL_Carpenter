@@ -108,7 +108,8 @@ namespace SQL_Carpenter.Forms
             string modifiedSubQueryColumns = subQueryColumns.Substring(0, subQueryColumns.Length - 2);
 
             TableDMLManagement tableDMLManagement = new TableDMLManagement(_server_name, _user_name, _password);
-            tableDMLManagement.insertData(_db_name, _table_name, modifiedSubQueryColumns, valuesToInsert);
+            int rowsInserted = tableDMLManagement.insertData(_db_name, _table_name, modifiedSubQueryColumns, valuesToInsert);
+            MessageBox.Show($"{rowsInserted} Rows inserted");
         }
     }
 }
