@@ -35,17 +35,14 @@ namespace SQL_Carpenter.Services.DML
 
         public int insertData(string targetedDB, string targetedTable, string columnsToInsert, List<object> valuesToInsert)
         {
-            // Validar que las entradas no estén vacías
             if (string.IsNullOrWhiteSpace(targetedDB) || string.IsNullOrWhiteSpace(targetedTable) ||
                 string.IsNullOrWhiteSpace(columnsToInsert) || valuesToInsert == null || valuesToInsert.Count == 0)
             {
                 throw new ArgumentException("Los parámetros de inserción no pueden estar vacíos.");
             }
 
-            // Convertir columnas en una lista
             string[] columnNames = columnsToInsert.Split(',');
 
-            // Validar que el número de columnas y valores coincidan
             if (columnNames.Length != valuesToInsert.Count)
             {
                 throw new ArgumentException("El número de columnas y valores no coincide.");
@@ -69,6 +66,7 @@ namespace SQL_Carpenter.Services.DML
                 }
 
                 return command.ExecuteNonQuery(); // Retorna el número de filas afectadas
+
             }
         }
 
