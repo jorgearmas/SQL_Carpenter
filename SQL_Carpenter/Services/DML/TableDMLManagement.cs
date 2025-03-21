@@ -68,5 +68,9 @@ namespace SQL_Carpenter.Services.DML
             }
         }
 
+        public int updateData(string targetedDB, string targetedTable, string columnsToUpdate, List<object> valuesToUpdate)
+        {
+            return 1;
+        }
     }
 }
