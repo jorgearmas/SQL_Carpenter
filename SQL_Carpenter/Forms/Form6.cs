@@ -21,10 +21,13 @@ namespace SQL_Carpenter.Forms
         private string _db_name;
         private string _table_name;
         public string id_field = "";
+        List<Object> valsToRender = new List<Object>();
+        int ID_toUpdate;
 
         public Dictionary<CheckBox, string> checkBoxes = new Dictionary<CheckBox, string>();
         public Dictionary<CheckBox, string> checkedBoxes = new Dictionary<CheckBox, string>();
-        public Dictionary<TextBox, string> textBoxesWithValues = new Dictionary<TextBox, string>();
+        public Dictionary<TextBox, string> textBoxes = new Dictionary<TextBox, string>();
+        List<string> targetedColumns = new List<string>();
         public List<Object> valuesToUpdate = new List<Object>();
         public Form6(string server_name, string user_name, string password, string db_name, string table_name)
         {
@@ -64,7 +67,7 @@ namespace SQL_Carpenter.Forms
                     checkedBoxes.Add(item.Key, item.Value);
                 }
             }
-            List<string> targetedColumns = new List<string>();
+            
             foreach (var item in checkedBoxes)
             {
                 System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox();
@@ -82,18 +85,25 @@ namespace SQL_Carpenter.Forms
                 panel2.Controls.Add(label);
                 panel2.Controls.Add(textBox);
 
-                textBoxesWithValues.Add(textBox, item.Value);
+                textBoxes.Add(textBox, item.Value);
                 targetedColumns.Add(item.Key.Name);
             }
-
-            int ID_toUpdate = Convert.ToInt32(textBox1.Text);
+            ID_toUpdate = Convert.ToInt32(textBox1.Text);
             TableDMLManagement tableDMLManagement = new TableDMLManagement(_server_name, _user_name, _password);
-            List<Object> valsToRender = tableDMLManagement.GetValuesFromColumns(_db_name, _table_name, targetedColumns, ID_toUpdate, id_field);
+            valsToRender = tableDMLManagement.GetValuesFromColumns(_db_name, _table_name, targetedColumns, ID_toUpdate, id_field);
+
+            for (int i = 0; i < textBoxes.Count; i++)
+            {
+                var item = textBoxes.ElementAt(i);
+                var itemKey = item.Key;
+                itemKey.Text = valsToRender[i].ToString();
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            foreach (var item in textBoxesWithValues)
+            foreach (var item in textBoxes)
             {
                 if (item.Value == "int")
                 {
@@ -103,9 +113,13 @@ namespace SQL_Carpenter.Forms
                 {
                     valuesToUpdate.Add(item.Key.Text);
                 }
-                //MessageBox.Show(item.Key.Text);
             }
-            //string modifiedSubQueryColumns = subQueryColumns.Substring(0, subQueryColumns.Length - 2);
+            
+            TableDMLManagement tableDML = new TableDMLManagement(_server_name, _user_name, _password);
+            
+            int status = tableDML.updateData(_db_name, _table_name, targetedColumns, valuesToUpdate, ID_toUpdate, id_field);
+            MessageBox.Show(status.ToString());
+
         }
     }
 }
