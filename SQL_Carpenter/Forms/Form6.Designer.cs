@@ -33,6 +33,7 @@
             button1 = new Button();
             panel2 = new Panel();
             button2 = new Button();
+            textBox1 = new TextBox();
             SuspendLayout();
             // 
             // panel1
@@ -80,11 +81,19 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(378, 12);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 27);
+            textBox1.TabIndex = 5;
+            // 
             // Form6
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1466, 395);
+            Controls.Add(textBox1);
             Controls.Add(button2);
             Controls.Add(panel2);
             Controls.Add(button1);
@@ -103,5 +112,6 @@
         private Button button1;
         private Panel panel2;
         private Button button2;
+        private TextBox textBox1;
     }
 }

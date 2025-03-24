@@ -20,7 +20,7 @@ namespace SQL_Carpenter.Forms
         private string _password;
         private string _db_name;
         private string _table_name;
-        string subQueryColumns = "";
+        public string id_field = "";
 
         public Dictionary<CheckBox, string> checkBoxes = new Dictionary<CheckBox, string>();
         public Dictionary<CheckBox, string> checkedBoxes = new Dictionary<CheckBox, string>();
@@ -38,7 +38,7 @@ namespace SQL_Carpenter.Forms
             TableDMLManagement tableDMLManagement = new TableDMLManagement(_server_name, _user_name, _password);
             Dictionary<string, string> columnsToRender = tableDMLManagement.getColumns(_db_name, _table_name);
             List<string> columnsDataType = new List<string>();
-
+            id_field = columnsToRender.Keys.First();
             foreach (var item in columnsToRender)
             {
                 System.Windows.Forms.CheckBox checkBox = new System.Windows.Forms.CheckBox();
@@ -64,7 +64,7 @@ namespace SQL_Carpenter.Forms
                     checkedBoxes.Add(item.Key, item.Value);
                 }
             }
-
+            List<string> targetedColumns = new List<string>();
             foreach (var item in checkedBoxes)
             {
                 System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox();
@@ -82,9 +82,13 @@ namespace SQL_Carpenter.Forms
                 panel2.Controls.Add(label);
                 panel2.Controls.Add(textBox);
 
-                subQueryColumns += $"{item.Key.Name}, ";
                 textBoxesWithValues.Add(textBox, item.Value);
+                targetedColumns.Add(item.Key.Name);
             }
+
+            int ID_toUpdate = Convert.ToInt32(textBox1.Text);
+            TableDMLManagement tableDMLManagement = new TableDMLManagement(_server_name, _user_name, _password);
+            List<Object> valsToRender = tableDMLManagement.GetValuesFromColumns(_db_name, _table_name, targetedColumns, ID_toUpdate, id_field);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -101,7 +105,7 @@ namespace SQL_Carpenter.Forms
                 }
                 //MessageBox.Show(item.Key.Text);
             }
-            string modifiedSubQueryColumns = subQueryColumns.Substring(0, subQueryColumns.Length - 2);
+            //string modifiedSubQueryColumns = subQueryColumns.Substring(0, subQueryColumns.Length - 2);
         }
     }
 }
