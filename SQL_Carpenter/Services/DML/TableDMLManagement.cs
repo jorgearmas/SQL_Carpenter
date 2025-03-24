@@ -69,10 +69,33 @@ namespace SQL_Carpenter.Services.DML
             }
         }
 
-        public int updateData(string targetedDB, string targetedTable, string columnsToUpdate, List<object> valuesToUpdate)
+        public int updateData(string targetedDB, string targetedTable, List<string> columnsToUpdate, List<object> valuesToUpdate, int targetedID, string ID_field)
         {
-            return 1;
+            if (columnsToUpdate == null || valuesToUpdate == null || columnsToUpdate.Count != valuesToUpdate.Count)
+            {
+                throw new ArgumentException("La cantidad de columnas y valores no coincide.");
+            }
+
+            string subQuery = string.Join(", ", columnsToUpdate.Select((col, index) => $"{col} = @param{index}"));
+            string query = $"UPDATE {targetedDB}.dbo.{targetedTable} SET {subQuery} WHERE {ID_field} = @id";
+
+            OpenConnection();
+            using (SqlCommand command = new SqlCommand(query, _connection))
+            {
+                // Añadir los parámetros dinámicos
+                for (int i = 0; i < valuesToUpdate.Count; i++)
+                {
+                    command.Parameters.AddWithValue($"@param{i}", valuesToUpdate[i] ?? DBNull.Value);
+                }
+
+                // Añadir el parámetro para el ID del WHERE
+                command.Parameters.AddWithValue("@id", targetedID);
+
+                // Ejecutar y devolver el número de filas afectadas
+                return command.ExecuteNonQuery();
+            }
         }
+
 
         public List<object> GetValuesFromColumns(string targetedDB, string targetedTable, List<string> targetedColumns, int targetedID, string ID_field)
         {
