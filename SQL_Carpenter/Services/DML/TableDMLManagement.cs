@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQL_Carpenter.Data;
+using Newtonsoft.Json.Linq;
+//using System.Data.SqlClient;
 
 namespace SQL_Carpenter.Services.DML
 {
@@ -49,7 +51,6 @@ namespace SQL_Carpenter.Services.DML
             }
 
             string parameterizedValues = string.Join(", ", columnNames.Select((col, index) => $"@param{index}"));
-
             string query = $"INSERT INTO {targetedDB}.dbo.{targetedTable} ({columnsToInsert}) VALUES ({parameterizedValues})";
 
             // Ejecutar la consulta
@@ -72,5 +73,38 @@ namespace SQL_Carpenter.Services.DML
         {
             return 1;
         }
+
+        public List<object> GetValuesFromColumns(string targetedDB, string targetedTable, List<string> targetedColumns, int targetedID, string ID_field)
+        {
+            if (string.IsNullOrWhiteSpace(targetedDB) || string.IsNullOrWhiteSpace(targetedTable) || targetedColumns == null || targetedColumns.Count == 0)
+            {
+                throw new ArgumentException("Los parámetros no pueden estar vacíos.");
+            }
+
+            string columns = string.Join(", ", targetedColumns);
+            string query = $"USE {targetedDB}; SELECT {columns} FROM {targetedTable} WHERE {ID_field} = {targetedID};";
+
+            List<Object> results = new List<Object>();
+
+            OpenConnection();
+            using (SqlCommand command = new SqlCommand(query, _connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Object value = new Object();
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            value = reader.GetValue(i);
+                            results.Add(value);
+                        }
+                    }
+                }
+            }
+
+            return results;
+        }
+
     }
 }
