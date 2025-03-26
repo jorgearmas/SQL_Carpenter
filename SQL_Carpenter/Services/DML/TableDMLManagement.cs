@@ -152,5 +152,17 @@ namespace SQL_Carpenter.Services.DML
             }
             return returnThese;
         }
+
+        public int deleteRow(string targetedDB, string targetedTable, string IdColumnName, int targetedID)
+        {
+            OpenConnection();
+            string query = $"USE {targetedDB}; DELETE FROM {targetedTable} WHERE {IdColumnName} = @targetedID;";
+            using (SqlCommand command = new SqlCommand(query, _connection))
+            {
+                command.Parameters.AddWithValue("@targetedID", targetedID);
+                return command.ExecuteNonQuery();
+            }
+                return 1;
+        }
     }
 }
