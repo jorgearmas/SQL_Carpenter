@@ -41,6 +41,7 @@
             txt_db_name = new TextBox();
             button2 = new Button();
             button3 = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -139,7 +140,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(1229, 335);
+            button2.Location = new Point(1097, 335);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 11;
@@ -149,7 +150,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(1329, 335);
+            button3.Location = new Point(1211, 335);
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 12;
@@ -157,11 +158,22 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // button4
+            // 
+            button4.Location = new Point(1329, 335);
+            button4.Name = "button4";
+            button4.Size = new Size(94, 29);
+            button4.TabIndex = 13;
+            button4.Text = "DELETE";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1466, 395);
+            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(txt_db_name);
@@ -197,5 +209,6 @@
         private TextBox txt_db_name;
         private Button button2;
         private Button button3;
+        private Button button4;
     }
 }

@@ -62,5 +62,21 @@ namespace SQL_Carpenter.Forms
             form6.Show();
             this.Hide();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string server_name = txt_server_name.Text;
+            string user_name = txt_user_name.Text;
+            string password = txt_password.Text;
+            string db_name = txt_db_name.Text;
+
+            int rowClicked = dataGridView1.CurrentRow.Index;
+            string table_name = dataGridView1.Rows[rowClicked].Cells[2].Value.ToString();
+
+            Form7 form7 = new Form7(server_name, user_name, password, db_name, table_name);
+            form7.FormClosed += (s, args) => this.Show();
+            form7.Show();
+            this.Hide();
+        }
     }
 }
