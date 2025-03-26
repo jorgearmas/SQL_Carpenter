@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using SQL_Carpenter.Data;
 using Newtonsoft.Json.Linq;
+using Azure.Core;
+using System.Windows.Input;
 //using System.Data.SqlClient;
 
 namespace SQL_Carpenter.Services.DML
@@ -96,7 +98,6 @@ namespace SQL_Carpenter.Services.DML
             }
         }
 
-
         public List<object> GetValuesFromColumns(string targetedDB, string targetedTable, List<string> targetedColumns, int targetedID, string ID_field)
         {
             if (string.IsNullOrWhiteSpace(targetedDB) || string.IsNullOrWhiteSpace(targetedTable) || targetedColumns == null || targetedColumns.Count == 0)
@@ -129,5 +130,27 @@ namespace SQL_Carpenter.Services.DML
             return results;
         }
 
+        public List<JObject> getAllRecords(string targetedDB, string targetedTable)
+        {
+            List<JObject> returnThese = new List<JObject>();
+            OpenConnection();
+            string query = $"USE {targetedDB}; SELECT * FROM dbo.{targetedTable}";
+            using (SqlCommand command = new SqlCommand(query, _connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        JObject newTable_Element = new JObject();
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            newTable_Element.Add(reader.GetName(i).ToString(), reader.GetValue(i).ToString());
+                        }
+                        returnThese.Add(newTable_Element);
+                    }
+                }
+            }
+            return returnThese;
+        }
     }
 }
