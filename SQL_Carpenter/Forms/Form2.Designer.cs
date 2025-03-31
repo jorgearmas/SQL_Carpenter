@@ -40,12 +40,6 @@
             button1 = new Button();
             dataGridView1 = new DataGridView();
             button2 = new Button();
-            label6 = new Label();
-            txt_DDL_getAll_serverName = new TextBox();
-            label7 = new Label();
-            txt_DDL_getAll_userName = new TextBox();
-            label8 = new Label();
-            txt_DDL_getAll_password = new TextBox();
             button3 = new Button();
             label9 = new Label();
             button4 = new Button();
@@ -74,7 +68,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(17, 247);
+            label3.Location = new Point(17, 289);
             label3.Name = "label3";
             label3.Size = new Size(116, 20);
             label3.TabIndex = 2;
@@ -121,14 +115,14 @@
             // 
             // txt_DDL_dataBaseName
             // 
-            txt_DDL_dataBaseName.Location = new Point(166, 247);
+            txt_DDL_dataBaseName.Location = new Point(166, 289);
             txt_DDL_dataBaseName.Name = "txt_DDL_dataBaseName";
             txt_DDL_dataBaseName.Size = new Size(125, 27);
             txt_DDL_dataBaseName.TabIndex = 8;
             // 
             // button1
             // 
-            button1.Location = new Point(166, 296);
+            button1.Location = new Point(166, 338);
             button1.Name = "button1";
             button1.Size = new Size(125, 29);
             button1.TabIndex = 9;
@@ -139,69 +133,21 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(333, 64);
+            dataGridView1.Location = new Point(333, 19);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1101, 261);
+            dataGridView1.Size = new Size(1101, 306);
             dataGridView1.TabIndex = 10;
             // 
             // button2
             // 
-            button2.Location = new Point(1340, 23);
+            button2.Location = new Point(166, 202);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(125, 29);
             button2.TabIndex = 11;
             button2.Text = "Load";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(332, 27);
-            label6.Name = "label6";
-            label6.Size = new Size(94, 20);
-            label6.TabIndex = 12;
-            label6.Text = "Server Name";
-            // 
-            // txt_DDL_getAll_serverName
-            // 
-            txt_DDL_getAll_serverName.Location = new Point(432, 24);
-            txt_DDL_getAll_serverName.Name = "txt_DDL_getAll_serverName";
-            txt_DDL_getAll_serverName.Size = new Size(125, 27);
-            txt_DDL_getAll_serverName.TabIndex = 13;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(589, 27);
-            label7.Name = "label7";
-            label7.Size = new Size(38, 20);
-            label7.TabIndex = 14;
-            label7.Text = "User";
-            // 
-            // txt_DDL_getAll_userName
-            // 
-            txt_DDL_getAll_userName.Location = new Point(633, 24);
-            txt_DDL_getAll_userName.Name = "txt_DDL_getAll_userName";
-            txt_DDL_getAll_userName.Size = new Size(125, 27);
-            txt_DDL_getAll_userName.TabIndex = 15;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(790, 27);
-            label8.Name = "label8";
-            label8.Size = new Size(64, 20);
-            label8.TabIndex = 16;
-            label8.Text = "Pasword";
-            // 
-            // txt_DDL_getAll_password
-            // 
-            txt_DDL_getAll_password.Location = new Point(860, 24);
-            txt_DDL_getAll_password.Name = "txt_DDL_getAll_password";
-            txt_DDL_getAll_password.Size = new Size(125, 27);
-            txt_DDL_getAll_password.TabIndex = 17;
             // 
             // button3
             // 
@@ -217,7 +163,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            label9.Location = new Point(17, 206);
+            label9.Location = new Point(17, 248);
             label9.Name = "label9";
             label9.Size = new Size(116, 20);
             label9.TabIndex = 19;
@@ -241,12 +187,6 @@
             Controls.Add(button4);
             Controls.Add(label9);
             Controls.Add(button3);
-            Controls.Add(txt_DDL_getAll_password);
-            Controls.Add(label8);
-            Controls.Add(txt_DDL_getAll_userName);
-            Controls.Add(label7);
-            Controls.Add(txt_DDL_getAll_serverName);
-            Controls.Add(label6);
             Controls.Add(button2);
             Controls.Add(dataGridView1);
             Controls.Add(button1);
@@ -280,12 +220,6 @@
         private Button button1;
         private DataGridView dataGridView1;
         private Button button2;
-        private Label label6;
-        private TextBox txt_DDL_getAll_serverName;
-        private Label label7;
-        private TextBox txt_DDL_getAll_userName;
-        private Label label8;
-        private TextBox txt_DDL_getAll_password;
         private Button button3;
         private Label label9;
         private Button button4;

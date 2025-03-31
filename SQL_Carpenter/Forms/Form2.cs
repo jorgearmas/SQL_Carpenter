@@ -15,17 +15,20 @@ namespace SQL_Carpenter.Forms
     public partial class Form2 : Form
     {
         BindingSource allDataBasesBindingSource = new BindingSource();
+        string server_name;
+        string user_name;
+        string password;
+        string database_name;
         public Form2()
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            string server_name = txt_DDL_serverName.Text;
-            string database_name = txt_DDL_dataBaseName.Text;
-            string user_name = txt_DDL_userName.Text;
-            string password = txt_DDL_password.Text;
+            server_name = txt_DDL_serverName.Text;
+            user_name = txt_DDL_userName.Text;
+            password = txt_DDL_password.Text;
+            database_name = txt_DDL_dataBaseName.Text;
 
             try
             {
@@ -39,19 +42,13 @@ namespace SQL_Carpenter.Forms
                 MessageBox.Show($" -- Exception found --> \n\n {ex}");
             }
 
-
-            txt_DDL_serverName.Text = "";
-            txt_DDL_dataBaseName.Text = "";
-            txt_DDL_userName.Text = "";
-            txt_DDL_password.Text = "";
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string server_name = txt_DDL_getAll_serverName.Text;
-            string user_name = txt_DDL_getAll_userName.Text;
-            string password = txt_DDL_getAll_password.Text;
+            server_name = txt_DDL_serverName.Text;
+            user_name = txt_DDL_userName.Text;
+            password = txt_DDL_password.Text;
             try
             {
                 GetAllDB getAllDB = new GetAllDB(server_name, user_name, password);
@@ -69,9 +66,9 @@ namespace SQL_Carpenter.Forms
             int rowClicked = dataGridView1.CurrentRow.Index;
             string db_name = dataGridView1.Rows[rowClicked].Cells[0].Value.ToString();
 
-            string server_name = txt_DDL_getAll_serverName.Text;
-            string user_name = txt_DDL_getAll_userName.Text;
-            string password = txt_DDL_getAll_password.Text;
+            server_name = txt_DDL_serverName.Text;
+            user_name = txt_DDL_userName.Text;
+            password = txt_DDL_password.Text;
 
             try
             {
@@ -89,13 +86,11 @@ namespace SQL_Carpenter.Forms
         private void button4_Click(object sender, EventArgs e)
         {
             int currentRow = dataGridView1.CurrentRow.Index;
-            string server_name = txt_DDL_getAll_serverName.Text;
-            string user_name = txt_DDL_getAll_userName.Text;
-            string password = txt_DDL_getAll_password.Text;
-
+            server_name = txt_DDL_serverName.Text;
+            user_name = txt_DDL_userName.Text;
+            password = txt_DDL_password.Text;
             string db_name = dataGridView1.Rows[currentRow].Cells[0].Value.ToString();
 
-            
             Form3 form3 = new Form3(db_name, server_name, user_name, password);
             form3.FormClosed += (s, args) => this.Show();
             form3.Show();
