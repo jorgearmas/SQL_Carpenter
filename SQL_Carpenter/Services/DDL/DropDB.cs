@@ -11,7 +11,7 @@ namespace SQL_Carpenter.Services.DDL
 {
     internal class DropDB : DatabaseConnection
     {
-        public DropDB(string server_name, string user_name, string password) : base(server_name, user_name, password) { }
+        //public DropDB(string server_name, string user_name, string password) : base(server_name, user_name, password) { }
 
         public int DropDatabase(string database_name)
         {

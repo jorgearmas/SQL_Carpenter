@@ -11,7 +11,6 @@ namespace SQL_Carpenter.Services.DDL
 {
     internal class GetAllDB : DatabaseConnection
     {
-        public GetAllDB(string server_name, string user_name, string password) : base(server_name, user_name, password) { }
         public List<JObject> getAllDataBases()
         {
             List<JObject> returnThese = new List<JObject>();

@@ -11,7 +11,7 @@ namespace SQL_Carpenter.Services.DDL
 {
     internal class CreateDB : DatabaseConnection
     {
-        public CreateDB(string server_name, string user_name, string password) : base(server_name, user_name, password) { }
+        //public CreateDB(string server_name, string user_name, string password) : base(server_name, user_name, password) { }
 
         public int CreateDatabase(string database_name)
         {
