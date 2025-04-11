@@ -10,18 +10,21 @@ namespace SQL_Carpenter.Data
 {
     public abstract class DatabaseConnection
     {
-        private string _connectionstring;
         protected SqlConnection _connection;
 
-        public DatabaseConnection(string server, string user, string password)
+        protected string BuildConnectionString()
         {
-            _connectionstring = $"Data Source={server}; " +
-                $"User ID={user}; Password={password}; TrustServerCertificate=True;";
+            var settings = ConnectionSettings.Instance;
+            return $"Data Source={settings.Server};" +
+                   $"User ID={settings.User};" +
+                   $"Password={settings.Password};" +
+                   "TrustServerCertificate=True;";
         }
 
         public void OpenConnection()
         {
-            _connection = new SqlConnection(_connectionstring);
+            string connectionString = BuildConnectionString();
+            _connection = new SqlConnection(connectionString);
             _connection.Open();
         }
 
