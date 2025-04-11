@@ -23,7 +23,7 @@ namespace SQL_Carpenter.Forms
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCreateDB_Click(object sender, EventArgs e)
         {
             server_name = txt_DDL_serverName.Text;
             user_name = txt_DDL_userName.Text;
@@ -44,7 +44,7 @@ namespace SQL_Carpenter.Forms
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnLoadDBs_Click(object sender, EventArgs e)
         {
             server_name = txt_DDL_serverName.Text;
             user_name = txt_DDL_userName.Text;
@@ -61,7 +61,7 @@ namespace SQL_Carpenter.Forms
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnDeleteDB_Click(object sender, EventArgs e)
         {
             int rowClicked = dataGridView1.CurrentRow.Index;
             string db_name = dataGridView1.Rows[rowClicked].Cells[0].Value.ToString();
@@ -83,7 +83,7 @@ namespace SQL_Carpenter.Forms
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnModifyDB_Click(object sender, EventArgs e)
         {
             int currentRow = dataGridView1.CurrentRow.Index;
             server_name = txt_DDL_serverName.Text;

@@ -37,12 +37,12 @@
             txt_DDL_userName = new TextBox();
             txt_DDL_password = new TextBox();
             txt_DDL_dataBaseName = new TextBox();
-            button1 = new Button();
+            btnCreateDB = new Button();
             dataGridView1 = new DataGridView();
-            button2 = new Button();
-            button3 = new Button();
+            btnLoadDBs = new Button();
+            btnDeleteDB = new Button();
             label9 = new Label();
-            button4 = new Button();
+            btnModifyDB = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -120,15 +120,15 @@
             txt_DDL_dataBaseName.Size = new Size(125, 27);
             txt_DDL_dataBaseName.TabIndex = 8;
             // 
-            // button1
+            // btnCreateDB
             // 
-            button1.Location = new Point(166, 338);
-            button1.Name = "button1";
-            button1.Size = new Size(125, 29);
-            button1.TabIndex = 9;
-            button1.Text = "Create DB";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnCreateDB.Location = new Point(166, 338);
+            btnCreateDB.Name = "btnCreateDB";
+            btnCreateDB.Size = new Size(125, 29);
+            btnCreateDB.TabIndex = 9;
+            btnCreateDB.Text = "Create DB";
+            btnCreateDB.UseVisualStyleBackColor = true;
+            btnCreateDB.Click += btnCreateDB_Click;
             // 
             // dataGridView1
             // 
@@ -139,25 +139,25 @@
             dataGridView1.Size = new Size(1101, 306);
             dataGridView1.TabIndex = 10;
             // 
-            // button2
+            // btnLoadDBs
             // 
-            button2.Location = new Point(166, 202);
-            button2.Name = "button2";
-            button2.Size = new Size(125, 29);
-            button2.TabIndex = 11;
-            button2.Text = "Load";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnLoadDBs.Location = new Point(166, 202);
+            btnLoadDBs.Name = "btnLoadDBs";
+            btnLoadDBs.Size = new Size(125, 29);
+            btnLoadDBs.TabIndex = 11;
+            btnLoadDBs.Text = "Load";
+            btnLoadDBs.UseVisualStyleBackColor = true;
+            btnLoadDBs.Click += btnLoadDBs_Click;
             // 
-            // button3
+            // btnDeleteDB
             // 
-            button3.Location = new Point(1340, 344);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 18;
-            button3.Text = "Delete DB";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            btnDeleteDB.Location = new Point(1340, 344);
+            btnDeleteDB.Name = "btnDeleteDB";
+            btnDeleteDB.Size = new Size(94, 29);
+            btnDeleteDB.TabIndex = 18;
+            btnDeleteDB.Text = "Delete DB";
+            btnDeleteDB.UseVisualStyleBackColor = true;
+            btnDeleteDB.Click += btnDeleteDB_Click;
             // 
             // label9
             // 
@@ -169,27 +169,27 @@
             label9.TabIndex = 19;
             label9.Text = "Name Database";
             // 
-            // button4
+            // btnModifyDB
             // 
-            button4.Location = new Point(1226, 344);
-            button4.Name = "button4";
-            button4.Size = new Size(94, 29);
-            button4.TabIndex = 20;
-            button4.Text = "Modify DB";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            btnModifyDB.Location = new Point(1226, 344);
+            btnModifyDB.Name = "btnModifyDB";
+            btnModifyDB.Size = new Size(94, 29);
+            btnModifyDB.TabIndex = 20;
+            btnModifyDB.Text = "Modify DB";
+            btnModifyDB.UseVisualStyleBackColor = true;
+            btnModifyDB.Click += btnModifyDB_Click;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1466, 395);
-            Controls.Add(button4);
+            Controls.Add(btnModifyDB);
             Controls.Add(label9);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(btnDeleteDB);
+            Controls.Add(btnLoadDBs);
             Controls.Add(dataGridView1);
-            Controls.Add(button1);
+            Controls.Add(btnCreateDB);
             Controls.Add(txt_DDL_dataBaseName);
             Controls.Add(txt_DDL_password);
             Controls.Add(txt_DDL_userName);
@@ -217,11 +217,11 @@
         private TextBox txt_DDL_userName;
         private TextBox txt_DDL_password;
         private TextBox txt_DDL_dataBaseName;
-        private Button button1;
+        private Button btnCreateDB;
         private DataGridView dataGridView1;
-        private Button button2;
-        private Button button3;
+        private Button btnLoadDBs;
+        private Button btnDeleteDB;
         private Label label9;
-        private Button button4;
+        private Button btnModifyDB;
     }
 }
