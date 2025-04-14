@@ -22,9 +22,6 @@ namespace SQL_Carpenter.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string server_name = txt_server_name.Text;
-            string user_name = txt_user_name.Text;
-            string password = txt_password.Text;
             string db_name = txt_db_name.Text;
 
             var getAllTables = DatabaseManager.GetAllTables(db_name);
@@ -34,15 +31,12 @@ namespace SQL_Carpenter.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string server_name = txt_server_name.Text;
-            string user_name = txt_user_name.Text;
-            string password = txt_password.Text;
             string db_name = txt_db_name.Text;
 
             int rowClicked = dataGridView1.CurrentRow.Index;
             string table_name = dataGridView1.Rows[rowClicked].Cells[2].Value.ToString();
 
-            Form5 form5 = new Form5(server_name, user_name, password, db_name, table_name);
+            Form5 form5 = new Form5(db_name, table_name);
             form5.FormClosed += (s, args) => this.Show();
             form5.Show();
             this.Hide();
@@ -50,15 +44,12 @@ namespace SQL_Carpenter.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string server_name = txt_server_name.Text;
-            string user_name = txt_user_name.Text;
-            string password = txt_password.Text;
             string db_name = txt_db_name.Text;
 
             int rowClicked = dataGridView1.CurrentRow.Index;
             string table_name = dataGridView1.Rows[rowClicked].Cells[2].Value.ToString();
 
-            Form6 form6 = new Form6(server_name, user_name, password, db_name, table_name);
+            Form6 form6 = new Form6(db_name, table_name);
             form6.FormClosed += (s, args) => this.Show();
             form6.Show();
             this.Hide();
@@ -66,18 +57,16 @@ namespace SQL_Carpenter.Forms
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string server_name = txt_server_name.Text;
-            string user_name = txt_user_name.Text;
-            string password = txt_password.Text;
             string db_name = txt_db_name.Text;
 
             int rowClicked = dataGridView1.CurrentRow.Index;
             string table_name = dataGridView1.Rows[rowClicked].Cells[2].Value.ToString();
 
-            Form7 form7 = new Form7(server_name, user_name, password, db_name, table_name);
+            Form7 form7 = new Form7(db_name, table_name);
             form7.FormClosed += (s, args) => this.Show();
             form7.Show();
             this.Hide();
         }
+
     }
 }
