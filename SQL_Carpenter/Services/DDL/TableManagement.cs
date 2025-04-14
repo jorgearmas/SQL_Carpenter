@@ -12,7 +12,6 @@ namespace SQL_Carpenter.Services.DDL
 {
     internal class TableManagement : DatabaseConnection
     {
-        public TableManagement(string server, string user, string password) : base(server, user, password){}
 
         public int CreateTable(string db_name, string tableName, string primary_key, Dictionary<string, string> field_type_pair)
         {
