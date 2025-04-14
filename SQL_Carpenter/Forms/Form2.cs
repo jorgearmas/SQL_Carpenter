@@ -20,6 +20,16 @@ namespace SQL_Carpenter.Forms
         public Form2()
         {
             InitializeComponent();
+            try
+            {
+                var getAllDB = DatabaseManager.GetAllDatabases();
+                allDataBasesBindingSource.DataSource = getAllDB;
+                dataGridView1.DataSource = allDataBasesBindingSource;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($" -- Exception found --> \n\n {ex}");
+            }
         }
         private void btnCreateDB_Click(object sender, EventArgs e)
         {
@@ -36,20 +46,6 @@ namespace SQL_Carpenter.Forms
                 MessageBox.Show($" -- Exception found --> \n\n {ex}");
             }
 
-        }
-
-        private void btnLoadDBs_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var getAllDB = DatabaseManager.GetAllDatabases();
-                allDataBasesBindingSource.DataSource = getAllDB;
-                dataGridView1.DataSource = allDataBasesBindingSource;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($" -- Exception found --> \n\n {ex}");
-            }
         }
 
         private void btnDeleteDB_Click(object sender, EventArgs e)
