@@ -26,5 +26,23 @@ namespace SQL_Carpenter.Managers
             var service = new DropDB();
             return service.DropDatabase(database_name);
         }
+
+        public static int CreateTable(string database_name, string table_name, string primary_key, Dictionary<string, string> field_type_pair)
+        {
+            var service = new TableManagement();
+            return service.CreateTable(database_name, table_name, primary_key, field_type_pair);
+        }
+
+        public static List<JObject> GetAllTables(string database_name)
+        {
+            var service = new TableManagement();
+            return service.GetAllTables(database_name);
+        }
+
+        public static int DropTable(string database_name, string table_name)
+        {
+            var service = new TableManagement();
+            return service.DropTable(database_name, table_name);
+        }
     }
 }
