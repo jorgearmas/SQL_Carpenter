@@ -14,8 +14,7 @@ namespace SQL_Carpenter.Services.DML
 {
     internal class TableDMLManagement : DatabaseConnection
     {
-        //public TableDMLManagement(string server_name, string user_name, string password) : base(server_name, user_name, password) { }
-
+      
         public Dictionary<string, string> getColumns(string db_name, string table_name)
         {
             Dictionary<string, string> allColumns = new Dictionary<string, string>();
