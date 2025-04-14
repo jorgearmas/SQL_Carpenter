@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SQL_Carpenter.Managers;
 using SQL_Carpenter.Services.DML;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using CheckBox = System.Windows.Forms.CheckBox;
@@ -15,9 +16,6 @@ namespace SQL_Carpenter.Forms
 {
     public partial class Form6 : Form
     {
-        private string _server_name;
-        private string _user_name;
-        private string _password;
         private string _db_name;
         private string _table_name;
         public string id_field = "";
@@ -31,15 +29,11 @@ namespace SQL_Carpenter.Forms
         public List<Object> valuesToUpdate = new List<Object>();
         public Form6(string server_name, string user_name, string password, string db_name, string table_name)
         {
-            _server_name = server_name;
-            _user_name = user_name;
-            _password = password;
             _db_name = db_name;
             _table_name = table_name;
 
             InitializeComponent();
-            TableDMLManagement tableDMLManagement = new TableDMLManagement(_server_name, _user_name, _password);
-            Dictionary<string, string> columnsToRender = tableDMLManagement.getColumns(_db_name, _table_name);
+            Dictionary<string, string> columnsToRender = TableManager.getColumns(_db_name, _table_name);
             List<string> columnsDataType = new List<string>();
             id_field = columnsToRender.Keys.First();
             foreach (var item in columnsToRender)
@@ -89,8 +83,7 @@ namespace SQL_Carpenter.Forms
                 targetedColumns.Add(item.Key.Name);
             }
             ID_toUpdate = Convert.ToInt32(textBox1.Text);
-            TableDMLManagement tableDMLManagement = new TableDMLManagement(_server_name, _user_name, _password);
-            valsToRender = tableDMLManagement.GetValuesFromColumns(_db_name, _table_name, targetedColumns, ID_toUpdate, id_field);
+            valsToRender = TableManager.GetValuesFromColumns(_db_name, _table_name, targetedColumns, ID_toUpdate, id_field);
 
             for (int i = 0; i < textBoxes.Count; i++)
             {
@@ -115,9 +108,7 @@ namespace SQL_Carpenter.Forms
                 }
             }
             
-            TableDMLManagement tableDML = new TableDMLManagement(_server_name, _user_name, _password);
-            
-            int status = tableDML.updateData(_db_name, _table_name, targetedColumns, valuesToUpdate, ID_toUpdate, id_field);
+            int status = TableManager.updateData(_db_name, _table_name, targetedColumns, valuesToUpdate, ID_toUpdate, id_field);
             MessageBox.Show(status.ToString());
 
         }

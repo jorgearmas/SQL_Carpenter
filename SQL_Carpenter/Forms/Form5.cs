@@ -11,14 +11,12 @@ using Microsoft.VisualBasic.FileIO;
 using SQL_Carpenter.Services.DML;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using CheckBox = System.Windows.Forms.CheckBox;
+using SQL_Carpenter.Managers;
 
 namespace SQL_Carpenter.Forms
 {
     public partial class Form5 : Form
     {
-        private string _server_name;
-        private string _user_name;
-        private string _password;
         private string _db_name;
         private string _table_name;
         string subQueryColumns = "";
@@ -30,15 +28,11 @@ namespace SQL_Carpenter.Forms
 
         public Form5(string server_name, string user_name, string password, string db_name, string table_name)
         {
-            _server_name = server_name;
-            _user_name = user_name;
-            _password = password;
             _db_name = db_name;
             _table_name = table_name;
 
             InitializeComponent();
-            TableDMLManagement tableDMLManagement = new TableDMLManagement(_server_name, _user_name, _password);
-            Dictionary<string, string> columnsToRender = tableDMLManagement.getColumns(_db_name, _table_name);
+            Dictionary<string, string> columnsToRender = TableManager.getColumns(db_name, table_name);
             List<string> columnsDataType = new List<string>();
 
             foreach (var item in columnsToRender)
@@ -107,8 +101,7 @@ namespace SQL_Carpenter.Forms
             }
             string modifiedSubQueryColumns = subQueryColumns.Substring(0, subQueryColumns.Length - 2);
 
-            TableDMLManagement tableDMLManagement = new TableDMLManagement(_server_name, _user_name, _password);
-            int rowsInserted = tableDMLManagement.insertData(_db_name, _table_name, modifiedSubQueryColumns, valuesToInsert);
+            int rowsInserted = TableManager.insertData(_db_name, _table_name, modifiedSubQueryColumns, valuesToInsert);
             MessageBox.Show($"{rowsInserted} Rows inserted");
         }
     }
