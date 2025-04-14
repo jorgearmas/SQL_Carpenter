@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SQL_Carpenter.Managers;
 using SQL_Carpenter.Services.DDL;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -17,22 +18,16 @@ namespace SQL_Carpenter.Forms
         BindingSource getAllTablesBindingSource = new BindingSource();
 
         private string _db_name;
-        private string _server_name;
-        private string _user_name;
-        private string _password;
 
         private Dictionary<string, string> field_type_pair = new Dictionary<string, string>();
-        public Form3(string db_name_from_form2, string server_name, string user_name, string password)
+        public Form3(string db_name_from_form2)
         {
             InitializeComponent();
             _db_name = db_name_from_form2;
-            _server_name = server_name;
-            _user_name = user_name;
-            _password = password;
             label2.Text = _db_name;
 
-            TableManagement tableManagement = new TableManagement(_server_name, _user_name, _password);
-            getAllTablesBindingSource.DataSource = tableManagement.GetAllTables(_db_name);
+            var getAllTables = DatabaseManager.GetAllTables(_db_name);
+            getAllTablesBindingSource.DataSource = getAllTables;
             dataGridView1.DataSource = getAllTablesBindingSource;
         }
 
@@ -61,8 +56,7 @@ namespace SQL_Carpenter.Forms
             string table_name = textBox1.Text;
             string primary_key = textBox2.Text;
 
-            TableManagement tableManagement = new TableManagement(_server_name, _user_name, _password);
-            int result = tableManagement.CreateTable(_db_name, table_name, primary_key, field_type_pair);
+            int result = DatabaseManager.CreateTable(_db_name, table_name, primary_key, field_type_pair);
             MessageBox.Show(result == -1 ? "Table created succesfully" : "Error while creating the table");
 
         }
@@ -72,8 +66,8 @@ namespace SQL_Carpenter.Forms
             int rowClicked = dataGridView1.CurrentRow.Index;
             string table_name = dataGridView1.Rows[rowClicked].Cells[2].Value.ToString();
 
-            TableManagement tableManagement = new TableManagement(_server_name, _user_name, _password);
-            int result = tableManagement.DropTable(_db_name, table_name);
+            
+            int result = DatabaseManager.DropTable(_db_name, table_name);
             MessageBox.Show(result == -1 ? "Table deleted succesfully" : "Error while deleting the table");
         }
     }

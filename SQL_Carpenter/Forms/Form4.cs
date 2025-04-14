@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SQL_Carpenter.Managers;
 using SQL_Carpenter.Services.DDL;
 
 namespace SQL_Carpenter.Forms
@@ -26,8 +27,8 @@ namespace SQL_Carpenter.Forms
             string password = txt_password.Text;
             string db_name = txt_db_name.Text;
 
-            TableManagement tableManagement = new TableManagement(server_name, user_name, password);
-            getAllTablesBindingSource.DataSource = tableManagement.GetAllTables(db_name);
+            var getAllTables = DatabaseManager.GetAllTables(db_name);
+            getAllTablesBindingSource.DataSource = getAllTables;
             dataGridView1.DataSource = getAllTablesBindingSource;
         }
 
