@@ -1,31 +1,28 @@
 # SQL_Carpenter
 
-## 1️ Basic Layers
+SQL Carpenter is a SQL Server instance client that allows you to perform basic DDL and DML operations.
+
+- DDL: Create, modify and delete databases.
+- DML: Insert, modify, and delete records.
+
+## Basic Layers
+
 - **UI (WinForms)** → Handles user interaction.
-- **Logic (Services/Managers)** → Contains methods to execute SQL commands.
-- **Data (SQL Connection Helper)** → Manages the database connection.
+- **Logic** → Contains methods to execute SQL commands.
+- **Data** → Manages the database connection.
 
----
+## Code Organization
 
-## 2️ Code Organization
-📂 `SQLSmith` (Root Project)  
- ├── 📁 `Forms` *(App windows)*  
- │   ├── `MainForm.cs` *(Main screen with buttons for DDL and DML operations)*  
- │   ├── `DatabaseForm.cs` *(Form for creating/deleting databases)*  
- │   ├── `QueryForm.cs` *(Later, for DML operations)*  
- │  
- ├── 📁 `Services` *(Business logic and SQL execution)*  
- │   ├── `DatabaseService.cs` *(Will contain `CreateDatabase()` and `DropDatabase()` using `SqlCommand`)*  
- │  
- ├── 📁 `Data` *(Connection handling and configurations)*  
- │   ├── `DatabaseConnection.cs` *(Class to manage the connection to SQL Server)*  
- │  
- ├── `Program.cs` *(Application entry point)*  
- ├── `App.config` *(Configurations like the connection string, if you decide to place it here)*  
-
----
-
-## 3️ Workflow
-1. The user interacts with the buttons in `DatabaseForm`.
-2. `DatabaseForm` calls `DatabaseService` to execute SQL.
-3. `DatabaseService` uses `DatabaseConnection` to connect and execute `SqlCommand`.
+📂 `SQL_Carpenter` (Root Project)  
+├── 📁 `Data`  
+│   ├── `ConnectionSettings.cs`: Singleton class, creates a single instance of the connection string. Subsequently the connector class assembles the connection string.  
+│   ├── `DatabaseConnection.cs`: Abstract class, manages the opening and closing of the connection to the database, uses SqlClient data provider.  
+├── 📁 `Forms` (UI - Windows Forms)  
+├── 📁 `Managers`  
+│   ├── `DatabaseManager.cs`: Facade class with static methods that access DDL services  
+│   ├── `TableManager.cs`: Facade class with static methods that access DML services  
+├── 📁 `Services` *(Business logic and SQL execution)*  
+│   ├── 📁 `DDL`: DDL services are here  
+│   ├── 📁 `DML`: DML services are here  
+├── `Program.cs` *(Application entry point)*  
+├── `App.config` *(Configurations)*  
