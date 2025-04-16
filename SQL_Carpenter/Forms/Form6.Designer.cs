@@ -92,7 +92,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1466, 395);
+            ClientSize = new Size(1035, 395);
             Controls.Add(textBox1);
             Controls.Add(button2);
             Controls.Add(panel2);

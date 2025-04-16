@@ -17,7 +17,7 @@ namespace SQL_Carpenter.Forms
         BindingSource getAllRecordsFromTableBindingSource = new BindingSource();
         private string _db_name;
         private string _table_name;
-        public Form7(string server_name, string user_name, string password, string db_name, string table_name)
+        public Form7(string db_name, string table_name)
         {
             _db_name = db_name;
             _table_name = table_name;

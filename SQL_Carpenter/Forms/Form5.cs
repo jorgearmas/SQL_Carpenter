@@ -26,7 +26,7 @@ namespace SQL_Carpenter.Forms
         public Dictionary<TextBox, string> textBoxesWithValues = new Dictionary<TextBox, string>();
         public List<Object> valuesToInsert = new List<Object>();
 
-        public Form5(string server_name, string user_name, string password, string db_name, string table_name)
+        public Form5(string db_name, string table_name)
         {
             _db_name = db_name;
             _table_name = table_name;

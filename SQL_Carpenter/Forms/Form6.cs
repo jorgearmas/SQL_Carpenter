@@ -27,7 +27,7 @@ namespace SQL_Carpenter.Forms
         public Dictionary<TextBox, string> textBoxes = new Dictionary<TextBox, string>();
         List<string> targetedColumns = new List<string>();
         public List<Object> valuesToUpdate = new List<Object>();
-        public Form6(string server_name, string user_name, string password, string db_name, string table_name)
+        public Form6(string db_name, string table_name)
         {
             _db_name = db_name;
             _table_name = table_name;
