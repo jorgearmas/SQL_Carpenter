@@ -4,7 +4,7 @@ SQL Carpenter is a SQL Server instance client that allows you to perform basic D
 
 - DDL: Create, modify and delete databases.
 - DML: Insert, modify, and delete records.
-- 
+
 ## 1️ Basic Layers
 
 - **UI (WinForms)** → Handles user interaction.
