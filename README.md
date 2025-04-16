@@ -5,13 +5,14 @@ SQL Carpenter is a SQL Server instance client that allows you to perform basic D
 - DDL: Create, modify and delete databases.
 - DML: Insert, modify, and delete records.
 
-## 1️ Basic Layers
+## Basic Layers
 
 - **UI (WinForms)** → Handles user interaction.
 - **Logic** → Contains methods to execute SQL commands.
 - **Data** → Manages the database connection.
 
 ## Code Organization
+
 📂 `SQL_Carpenter` (Root Project)
  ├── 📁 `Data`
  |    ├── `ConnectionSettings.cs`: Singleton class, creates a single instance of the connection string. Subsequently the connector class assembles the connection string.
